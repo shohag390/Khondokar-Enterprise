@@ -1,8 +1,36 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .banner {
   background-image: url("./assets/image/bannerBg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.about {
+  background-image: url("./assets/image/aboutBg.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.whyChooseUs {
+  background-image: url("./assets/image/whyChooseUs.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.swiper-pagination-bullet {
+  background: #1952fb94 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1953fb !important;
+  width: 20px !important;
+  border-radius: 20px !important;
 }

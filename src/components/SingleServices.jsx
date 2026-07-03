@@ -14,6 +14,7 @@ import {
   FaMoneyBillWave,
   FaTruck,
 } from "react-icons/fa";
+import SectionHeader from "../shared/SectionHeader";
 
 const services = [
   {
@@ -35,15 +36,6 @@ const services = [
         featured: true,
         category: "Legal",
         available: true,
-        requiredDocuments: [
-          "জাতীয় পরিচয়পত্র (NID)",
-          "পাসপোর্ট সাইজ ছবি",
-          "স্বাক্ষর",
-          "LL.B/LL.M সার্টিফিকেট",
-          "ইন্টার্নশিপ/পিউপিলেজ সনদ",
-          "মোবাইল নম্বর",
-          "ইমেইল ঠিকানা",
-        ],
         features: [
           "অনলাইন আবেদন ফরম পূরণ",
           "ডকুমেন্ট আপলোড",
@@ -64,12 +56,7 @@ const services = [
         featured: true,
         category: "Government",
         available: true,
-        requiredDocuments: [
-          "জাতীয় পরিচয়পত্র",
-          "জন্ম নিবন্ধন",
-          "মোবাইল নম্বর",
-          "ইমেইল",
-        ],
+
         features: [
           "অনলাইন ফরম পূরণ",
           "তথ্য যাচাই",
@@ -88,7 +75,6 @@ const services = [
         featured: true,
         category: "Government",
         available: true,
-        requiredDocuments: ["হাসপাতালের সনদ", "পিতা-মাতার NID", "মোবাইল নম্বর"],
         features: [
           "নতুন আবেদন",
           "তথ্য সংশোধন",
@@ -106,7 +92,6 @@ const services = [
         featured: false,
         category: "Government",
         available: true,
-        requiredDocuments: ["বর্তমান NID", "প্রমাণপত্র", "মোবাইল নম্বর"],
         features: [
           "তথ্য সংশোধন",
           "ঠিকানা পরিবর্তন",
@@ -124,7 +109,6 @@ const services = [
         featured: false,
         category: "Tax",
         available: true,
-        requiredDocuments: ["NID", "মোবাইল নম্বর", "ইমেইল"],
         features: ["নতুন নিবন্ধন", "তথ্য সংশোধন", "সার্টিফিকেট ডাউনলোড"],
       },
       {
@@ -137,7 +121,6 @@ const services = [
         featured: true,
         category: "Job",
         available: true,
-        requiredDocuments: ["ছবি", "স্বাক্ষর", "সার্টিফিকেট", "NID"],
         features: ["ফরম পূরণ", "ডকুমেন্ট আপলোড", "ফি গাইডলাইন", "আবেদন সাবমিট"],
       },
       {
@@ -152,12 +135,6 @@ const services = [
         featured: true,
         category: "Education",
         available: true,
-        requiredDocuments: [
-          "SSC মার্কশিট",
-          "HSC মার্কশিট",
-          "ছবি",
-          "মোবাইল নম্বর",
-        ],
         features: ["অনলাইন আবেদন", "ফি নির্দেশনা", "আবেদন প্রিন্ট"],
       },
       {
@@ -170,7 +147,6 @@ const services = [
         featured: false,
         category: "Travel",
         available: true,
-        requiredDocuments: ["পাসপোর্ট", "ছবি", "ব্যাংক স্টেটমেন্ট"],
         features: ["ফরম পূরণ", "ডকুমেন্ট আপলোড", "অ্যাপয়েন্টমেন্ট বুকিং"],
       },
       {
@@ -183,7 +159,6 @@ const services = [
         featured: false,
         category: "Business",
         available: true,
-        requiredDocuments: ["NID", "ছবি", "ব্যবসার ঠিকানা"],
         features: ["নতুন আবেদন", "নবায়ন", "আবেদন প্রিন্ট"],
       },
     ],
@@ -207,7 +182,6 @@ const services = [
         featured: true,
         category: "Printing",
         available: true,
-        requiredDocuments: ["PDF", "Word", "Image"],
         features: [
           "উচ্চ মানের প্রিন্ট",
           "একাধিক কপি",
@@ -225,7 +199,6 @@ const services = [
         featured: true,
         category: "Printing",
         available: true,
-        requiredDocuments: ["PDF", "Image"],
         features: ["HD কালার প্রিন্ট", "ফটো কোয়ালিটি", "A4/A3 সাপোর্ট"],
       },
       {
@@ -238,7 +211,6 @@ const services = [
         featured: true,
         category: "Photo",
         available: true,
-        requiredDocuments: ["JPG", "PNG"],
         features: [
           "Glossy Paper",
           "Matte Paper",
@@ -257,7 +229,6 @@ const services = [
         featured: false,
         category: "Education",
         available: true,
-        requiredDocuments: ["PDF"],
         features: ["ডাবল সাইড প্রিন্ট", "রঙিন কভার", "উচ্চ মানের কাগজ"],
       },
       {
@@ -270,7 +241,6 @@ const services = [
         featured: true,
         category: "Career",
         available: true,
-        requiredDocuments: ["PDF", "Word"],
         features: ["সাদা-কালো", "কালার", "উচ্চ মানের কাগজ"],
       },
       {
@@ -283,7 +253,6 @@ const services = [
         featured: false,
         category: "Card",
         available: true,
-        requiredDocuments: ["Photo", "Design"],
         features: ["PVC Card", "কালার প্রিন্ট", "উচ্চ মানের ফিনিশ"],
       },
       {
@@ -296,7 +265,6 @@ const services = [
         featured: false,
         category: "Marketing",
         available: true,
-        requiredDocuments: ["PDF", "AI", "PSD"],
         features: ["বড় সাইজ", "উচ্চ রেজুলেশন", "কালার প্রিন্ট"],
       },
       {
@@ -310,7 +278,6 @@ const services = [
         featured: false,
         category: "Document",
         available: true,
-        requiredDocuments: ["PDF", "Word", "Excel"],
         features: [
           "Single Side",
           "Double Side",
@@ -339,7 +306,6 @@ const services = [
         featured: true,
         category: "Photocopy",
         available: true,
-        requiredDocuments: ["মূল ডকুমেন্ট"],
         features: [
           "High Quality Copy",
           "Single Side",
@@ -358,7 +324,6 @@ const services = [
         featured: true,
         category: "Photocopy",
         available: true,
-        requiredDocuments: ["মূল ডকুমেন্ট"],
         features: ["HD Color Copy", "A4/A3 Support", "Multiple Copies"],
       },
       {
@@ -371,7 +336,6 @@ const services = [
         featured: true,
         category: "Identity",
         available: true,
-        requiredDocuments: ["NID Card"],
         features: ["Front & Back Copy", "Clear Print", "Multiple Copies"],
       },
       {
@@ -384,7 +348,6 @@ const services = [
         featured: false,
         category: "Travel",
         available: true,
-        requiredDocuments: ["Passport"],
         features: ["Color Copy", "Black & White Copy", "Multiple Copies"],
       },
       {
@@ -397,7 +360,6 @@ const services = [
         featured: true,
         category: "Education",
         available: true,
-        requiredDocuments: ["Original Certificate"],
         features: ["Clear Copy", "A4 Size", "Bulk Copy"],
       },
       {
@@ -411,7 +373,6 @@ const services = [
         featured: false,
         category: "Education",
         available: true,
-        requiredDocuments: ["Original Marksheet"],
         features: ["HD Copy", "Multiple Copies"],
       },
       {
@@ -425,7 +386,6 @@ const services = [
         featured: false,
         category: "Education",
         available: true,
-        requiredDocuments: ["Book / Notes"],
         features: ["Bulk Copy", "Double Side", "Fast Service"],
       },
       {
@@ -439,7 +399,6 @@ const services = [
         featured: false,
         category: "Legal",
         available: true,
-        requiredDocuments: ["Original Document"],
         features: [
           "High Resolution",
           "Confidential Service",
@@ -467,7 +426,6 @@ const services = [
         featured: true,
         category: "Scanning",
         available: true,
-        requiredDocuments: ["মূল ডকুমেন্ট"],
         features: [
           "High Resolution",
           "PDF Format",
@@ -486,7 +444,6 @@ const services = [
         featured: true,
         category: "Identity",
         available: true,
-        requiredDocuments: ["NID Card"],
         features: ["Front & Back Scan", "HD Quality", "Instant Delivery"],
       },
       {
@@ -500,7 +457,6 @@ const services = [
         featured: true,
         category: "Travel",
         available: true,
-        requiredDocuments: ["Passport"],
         features: ["HD Scan", "Multiple Pages", "Email Support"],
       },
       {
@@ -514,7 +470,6 @@ const services = [
         featured: false,
         category: "Education",
         available: true,
-        requiredDocuments: ["Original Certificate"],
         features: ["Color Scan", "Black & White Scan", "High Resolution"],
       },
       {
@@ -527,7 +482,6 @@ const services = [
         featured: false,
         category: "Photo",
         available: true,
-        requiredDocuments: ["Original Photo"],
         features: ["HD Image", "Color Correction", "Digital Copy"],
       },
       {
@@ -540,7 +494,6 @@ const services = [
         featured: false,
         category: "Education",
         available: true,
-        requiredDocuments: ["Book / Notes"],
         features: ["Multiple Pages", "PDF Merge", "HD Scan"],
       },
       {
@@ -554,7 +507,6 @@ const services = [
         featured: false,
         category: "Legal",
         available: true,
-        requiredDocuments: ["Original Document"],
         features: ["High Quality", "Secure Handling", "Email Delivery"],
       },
       {
@@ -568,7 +520,6 @@ const services = [
         featured: true,
         category: "Scanning",
         available: true,
-        requiredDocuments: ["স্ক্যানকৃত ডকুমেন্ট"],
         features: [
           "Merge PDF",
           "Page Arrangement",
@@ -597,7 +548,6 @@ const services = [
         featured: true,
         category: "Branding",
         available: true,
-        requiredDocuments: ["ব্যবসার নাম", "পছন্দের রঙ"],
         features: [
           "Modern Design",
           "High Resolution",
@@ -615,7 +565,6 @@ const services = [
         featured: true,
         category: "Printing Design",
         available: true,
-        requiredDocuments: ["নাম", "মোবাইল নম্বর", "ঠিকানা", "লোগো"],
         features: ["Front & Back Design", "Print Ready", "High Resolution"],
       },
       {
@@ -628,7 +577,6 @@ const services = [
         featured: false,
         category: "Marketing",
         available: true,
-        requiredDocuments: ["লোগো", "ছবি", "কনটেন্ট"],
         features: ["Single/Double Side", "Print Ready", "Custom Size"],
       },
       {
@@ -641,7 +589,6 @@ const services = [
         featured: true,
         category: "Marketing",
         available: true,
-        requiredDocuments: ["ছবি", "লোগো", "লেখা"],
         features: ["HD Quality", "Print Ready", "Social Media Version"],
       },
       {
@@ -654,7 +601,6 @@ const services = [
         featured: true,
         category: "Advertising",
         available: true,
-        requiredDocuments: ["ছবি", "লোগো", "সাইজ"],
         features: ["Facebook Cover", "Web Banner", "Flex Banner"],
       },
       {
@@ -667,7 +613,6 @@ const services = [
         featured: false,
         category: "Identity",
         available: true,
-        requiredDocuments: ["ছবি", "নাম", "পদবি", "লোগো"],
         features: ["Front & Back", "Print Ready", "PVC Compatible"],
       },
       {
@@ -681,7 +626,6 @@ const services = [
         featured: true,
         category: "Social Media",
         available: true,
-        requiredDocuments: ["লোগো", "ছবি", "কনটেন্ট"],
         features: ["Facebook Post", "Instagram Post", "Story Design"],
       },
       {
@@ -694,7 +638,6 @@ const services = [
         featured: false,
         category: "Career",
         available: true,
-        requiredDocuments: ["ব্যক্তিগত তথ্য", "শিক্ষাগত যোগ্যতা", "অভিজ্ঞতা"],
         features: ["Professional Layout", "Editable File", "Print Ready"],
       },
     ],
@@ -718,7 +661,6 @@ const services = [
         featured: true,
         category: "Certificate",
         available: true,
-        requiredDocuments: ["মূল সার্টিফিকেট"],
         features: [
           "Water Resistant",
           "Dust Protection",
@@ -737,7 +679,6 @@ const services = [
         featured: true,
         category: "Identity",
         available: true,
-        requiredDocuments: ["আইডি কার্ড"],
         features: ["Pocket Size", "Glossy Finish", "Water Resistant"],
       },
       {
@@ -750,7 +691,6 @@ const services = [
         featured: false,
         category: "Photo",
         available: true,
-        requiredDocuments: ["ছবি"],
         features: ["High Gloss", "Scratch Protection", "Long Lasting"],
       },
       {
@@ -763,7 +703,6 @@ const services = [
         featured: true,
         category: "Document",
         available: true,
-        requiredDocuments: ["A4 ডকুমেন্ট"],
         features: ["Premium Film", "Waterproof", "Professional Finish"],
       },
       {
@@ -777,7 +716,6 @@ const services = [
         featured: false,
         category: "Document",
         available: true,
-        requiredDocuments: ["A3 ডকুমেন্ট"],
         features: ["Large Size", "Premium Finish", "Long Protection"],
       },
       {
@@ -791,7 +729,6 @@ const services = [
         featured: false,
         category: "Business",
         available: true,
-        requiredDocuments: ["মেনু কার্ড"],
         features: ["Waterproof", "Easy to Clean", "Premium Look"],
       },
       {
@@ -805,7 +742,6 @@ const services = [
         featured: false,
         category: "Business",
         available: true,
-        requiredDocuments: ["ভিজিটিং কার্ড"],
         features: ["Matte Finish", "Glossy Finish", "Premium Quality"],
       },
       {
@@ -819,7 +755,6 @@ const services = [
         featured: true,
         category: "Custom",
         available: true,
-        requiredDocuments: ["ডকুমেন্ট বা ছবি"],
         features: [
           "Custom Size",
           "Premium Film",
@@ -843,89 +778,62 @@ const SingleServices = () => {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="py-8 md:py-10 lg:py-12 px-5 md:px-13 lg:px-25 2xl:px-40 bg-[#f5f7fd]">
       {/* Header */}
-      <div className="text-center mb-12">
-        <img
-          src={service.image}
-          alt={service.title}
-          className="w-24 h-24 mx-auto mb-5"
-        />
-
-        <h2 className="text-4xl font-bold">{service.title}</h2>
-
-        <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-          {service.description}
-        </p>
-      </div>
+      <SectionHeader title={service?.title} subTitle={service?.description} />
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5 2xl:gap-6">
         {service.subServices.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300"
+            className="bg-[#ffff] p-4 md:p-5 lg:p-6 rounded-2xl border border-gray-200 cursor-pointer hover:-translate-y-1 duration-500"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold">{item.title}</h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-[16px] lg:text-[18px] font-semibold lg:font-bold text-[#0537ce] pb-2">
+                {item.title}
+              </h3>
 
               {item.featured && (
-                <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
+                <span className="bg-blue-100 text-[#0537ce] text-xs px-3 py-1 rounded-full">
                   জনপ্রিয়
                 </span>
               )}
             </div>
 
-            <p className="text-gray-600 text-sm leading-7">
+            <p className="text-[14px] md:text-[16px] text-gray-500 line-clamp-1">
               {item.description}
             </p>
 
-            <div className="border-t my-5"></div>
+            <div className="border-t my-3 lg:my-4"></div>
 
-            <div className="space-y-3 text-sm">
-              <p className="flex items-center gap-2">
-                <FaClock className="text-blue-500" />
-                <span>{item.duration}</span>
+            <div className="flex flex-col gap-2">
+              <p className="flex items-center gap-2 text-[14px] md:text-[18px]">
+                <FaClock className="text-[#0537ce]" />
+                <span className="font-medium">{item.duration}</span>
               </p>
 
-              <p className="flex items-center gap-2">
-                <FaTruck className="text-green-500" />
-                <span>{item.delivery}</span>
+              <p className="flex items-center gap-2 text-[14px] md:text-[18px]">
+                <FaTruck className="text-[#0537ce]" />
+                <span className="font-medium">{item.delivery}</span>
               </p>
 
-              <p className="flex items-center gap-2">
-                <FaMoneyBillWave className="text-orange-500" />
-                <span>৳ {item.price}</span>
+              <p className="flex items-center gap-2 text-[14px] md:text-[18px]">
+                <FaMoneyBillWave className="text-[#0537ce]" />
+                <span className="font-medium">৳ {item.price}</span>
               </p>
             </div>
 
             <div className="mt-6">
-              <h4 className="font-semibold flex items-center gap-2">
-                <FaFileAlt />
-                প্রয়োজনীয় কাগজপত্র
+              <h4 className="text-[16px] lg:text-[18px] font-medium lg:font-semibold">
+                এই সার্ভিসে যা থাকছে
               </h4>
-
-              <ul className="mt-2 space-y-2">
-                {item.requiredDocuments.map((doc, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center gap-2 text-sm text-gray-600"
-                  >
-                    <FaCheckCircle className="text-green-500 text-xs" />
-                    {doc}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-6">
-              <h4 className="font-semibold">এই সার্ভিসে যা থাকছে</h4>
 
               <div className="flex flex-wrap gap-2 mt-3">
                 {item.features.map((feature, index) => (
                   <span
                     key={index}
-                    className="bg-gray-100 text-sm px-3 py-1 rounded-full"
+                    className="px-5 py-1 text-[14px] md:text-[16px] rounded-full bg-[#0537ce27] text-[#0537ce]"
                   >
                     {feature}
                   </span>
