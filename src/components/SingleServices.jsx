@@ -1,11 +1,19 @@
+import React from "react";
 import onlineApplication from "../assets/image/online-application.png";
 import printingService from "../assets/image/printing-service.png";
 import photocopyService from "../assets/image/photocopy-service.png";
 import scanningService from "../assets/image/scanning-service.png";
 import designService from "../assets/image/design-service.png";
 import laminationService from "../assets/image/lamination-service.png";
-import SectionHeader from "../shared/SectionHeader";
-import { Link } from "react-router";
+import { useParams } from "react-router";
+import { div } from "motion/react-client";
+import {
+  FaCheckCircle,
+  FaClock,
+  FaFileAlt,
+  FaMoneyBillWave,
+  FaTruck,
+} from "react-icons/fa";
 
 const services = [
   {
@@ -823,41 +831,112 @@ const services = [
   },
 ];
 
-const OurServices = () => {
-  return (
-    <div className="py-8 md:py-10 lg:py-12 px-5 md:px-13 lg:px-25 2xl:px-40 bg-[#f5f7fd]">
-      <SectionHeader
-        title={"আমাদের সেবা সমূহ"}
-        subTitle={
-          "আপনার প্রয়োজনীয় প্রতিটি সেবা সহজ, দ্রুত এবং সাশ্রয়ী মূল্যে।"
-        }
-      />
+const SingleServices = () => {
+  const { id } = useParams();
+  const service = services.find((item) => item.id === id);
+  if (!service) {
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-3xl font-bold">Service Not Found</h2>
+      </div>
+    );
+  }
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-5 2xl:gap-6">
-        {services?.map((service) => (
-          <Link
-            to={`${service?.id}`}
-            className="bg-[#ffff] p-4 md:p-5 lg:p-6 flex flex-col items-center justify-center rounded-2xl border border-gray-200 cursor-pointer hover:-translate-y-1 duration-500"
-            key={service?.id}
+  return (
+    <section className="max-w-7xl mx-auto px-4 py-16">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-24 h-24 mx-auto mb-5"
+        />
+
+        <h2 className="text-4xl font-bold">{service.title}</h2>
+
+        <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
+          {service.description}
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {service.subServices.map((item) => (
+          <div
+            key={item.id}
+            className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300"
           >
-            <img
-              className="h-30 w-30 rounded-full"
-              src={service?.image}
-              alt=""
-            />
-            <div className="pt-3 lg:pt-4 text-center">
-              <h4 className="text-[18px] font-semibold lg:font-bold text-[#0537ce] pb-2">
-                {service?.title}
-              </h4>
-              <p className="text-[14px] md:text-[16px] text-gray-500">
-                {service?.subtitle}
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold">{item.title}</h3>
+
+              {item.featured && (
+                <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
+                  জনপ্রিয়
+                </span>
+              )}
+            </div>
+
+            <p className="text-gray-600 text-sm leading-7">
+              {item.description}
+            </p>
+
+            <div className="border-t my-5"></div>
+
+            <div className="space-y-3 text-sm">
+              <p className="flex items-center gap-2">
+                <FaClock className="text-blue-500" />
+                <span>{item.duration}</span>
+              </p>
+
+              <p className="flex items-center gap-2">
+                <FaTruck className="text-green-500" />
+                <span>{item.delivery}</span>
+              </p>
+
+              <p className="flex items-center gap-2">
+                <FaMoneyBillWave className="text-orange-500" />
+                <span>৳ {item.price}</span>
               </p>
             </div>
-          </Link>
+
+            <div className="mt-6">
+              <h4 className="font-semibold flex items-center gap-2">
+                <FaFileAlt />
+                প্রয়োজনীয় কাগজপত্র
+              </h4>
+
+              <ul className="mt-2 space-y-2">
+                {item.requiredDocuments.map((doc, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <FaCheckCircle className="text-green-500 text-xs" />
+                    {doc}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="font-semibold">এই সার্ভিসে যা থাকছে</h4>
+
+              <div className="flex flex-wrap gap-2 mt-3">
+                {item.features.map((feature, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-100 text-sm px-3 py-1 rounded-full"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default OurServices;
+export default SingleServices;

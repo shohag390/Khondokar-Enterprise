@@ -4,6 +4,7 @@ import Homes from "../pages/Homes";
 import AboutUs from "../components/AboutUs";
 import Services from "../components/Services";
 import ContactUs from "../components/ContactUs";
+import SingleServices from "../components/SingleServices";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         Component: Services,
+      },
+      {
+        path: "/:id",
+        Component: SingleServices,
       },
       {
         path: "/contact-us",
