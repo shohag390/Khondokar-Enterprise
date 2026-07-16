@@ -10,8 +10,8 @@ const navManu = [
     display: "হোম",
   },
   {
-    path: "/about-us",
-    display: "আমাদের সম্পর্কে",
+    path: "/all-product",
+    display: "আমাদের পণ্য",
   },
   {
     path: "/services",
@@ -24,6 +24,7 @@ const navManu = [
 ];
 
 const Navbar = () => {
+  const [user, SetUser] = useState(true);
   const [open, setOpen] = useState(false);
 
   return (
@@ -67,11 +68,19 @@ const Navbar = () => {
           </li>
         ))}
         <li>
-          <Link onClick={() => setOpen(!open)} to={"/contact-us"}>
-            <button className="px-5 md:px-6 lg:px-7 2xl:px-8 py-2 md:py-2.5 lg:py-3 2xl:py-3.5 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
-              অনলাইন আবেদন
-            </button>
-          </Link>
+          {!user ? (
+            <Link onClick={() => setOpen(!open)} to={"/login"}>
+              <button className="px-8 md:px-10 py-2 md:py-3 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
+                Sign In
+              </button>
+            </Link>
+          ) : (
+            <Link onClick={() => setOpen(!open)} to={"/dashboard"}>
+              <button className="px-8 md:px-10 py-2 md:py-3 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
+                Dashboard
+              </button>
+            </Link>
+          )}
         </li>
       </ul>
 
@@ -89,11 +98,19 @@ const Navbar = () => {
               <p className="text-[#1c3b8e] font-medium">সকাল ৯টা - সন্ধা ৭টা</p>
             </div>
           </div>
-          <Link to={"/contact-us"}>
-            <button className="px-5 md:px-6 lg:px-7 2xl:px-8 py-2 md:py-2.5 lg:py-3 2xl:py-3.5 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
-              অনলাইন আবেদন
-            </button>
-          </Link>
+          {!user ? (
+            <Link to={"/login"}>
+              <button className="lg:px-12 2xl:px-14 lg:py-2 2xl:py-3 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
+                Sign In
+              </button>
+            </Link>
+          ) : (
+            <Link to={"/dashboard"}>
+              <button className="lg:px-12 2xl:px-14 lg:py-2 2xl:py-3 bg-[#1953fb] hover:bg-[#0537ce] duration-500 text-[#ffff] text-[14px] md:text-[16px] rounded-full">
+                Dashboard
+              </button>
+            </Link>
+          )}
         </div>
 
         {/* ManuBar */}

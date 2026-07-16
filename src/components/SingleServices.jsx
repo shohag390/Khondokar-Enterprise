@@ -1,4 +1,3 @@
-import React from "react";
 import onlineApplication from "../assets/image/online-application.png";
 import printingService from "../assets/image/printing-service.png";
 import photocopyService from "../assets/image/photocopy-service.png";
@@ -6,14 +5,7 @@ import scanningService from "../assets/image/scanning-service.png";
 import designService from "../assets/image/design-service.png";
 import laminationService from "../assets/image/lamination-service.png";
 import { useParams } from "react-router";
-import { div } from "motion/react-client";
-import {
-  FaCheckCircle,
-  FaClock,
-  FaFileAlt,
-  FaMoneyBillWave,
-  FaTruck,
-} from "react-icons/fa";
+import { FaClock, FaMoneyBillWave, FaTruck } from "react-icons/fa";
 import SectionHeader from "../shared/SectionHeader";
 
 const services = [
