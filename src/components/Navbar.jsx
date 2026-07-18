@@ -24,7 +24,7 @@ const navManu = [
 ];
 
 const Navbar = () => {
-  const [user, SetUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [open, setOpen] = useState(false);
 
   return (
